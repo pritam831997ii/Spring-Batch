@@ -112,40 +112,51 @@ public class BatchConfig {
 	}
 
 	
+	//	@Bean
+//	public Job firstJob(JobRepository jobRepository, Step Step1, Step Step2) {
+//
+//		return new JobBuilder("JOB-3", jobRepository)
+//				//.preventRestart()
+//				.start(Step1)
+//				.next(Step2)
+//				.build();
+//		
+//	}
 	
 	
-	/*
-	 * @Bean public Job firstJob(JobRepository jobRepository, Step Step1, Step
-	 * Step2, Step Step3) {
-	 * 
-	 * return new JobBuilder("JOB-3", jobRepository) .preventRestart() .start(Step1)
-	 * .next(Step2) .next(Step3) .build(); }
-	 */
+//	@Bean
+//	public Job firstJob(JobRepository jobRepository, Step Step1, Step Step2, Step Step3) {
+//		
+//		return new JobBuilder("JOB-3", jobRepository)
+//				.start(Step1)
+//					.on("COMPLETED").to(Step2)
+//				.from(Step2)
+//					.on("TESTSTATUS").to(Step3)
+//				.end()
+//				.build();
+//	}
 	
 	
+	@Bean
+	public Job firstJob(
+			JobRepository jobRepository,
+			@Qualifier("Step1") Step step1,
+			@Qualifier("Step2") Step step2,
+			@Qualifier("Step3") Step step3,
+			JobExecutionDecider batchExecutionDecider) {
+
+		return new JobBuilder("JOB-3", jobRepository)
+
+				.start(step1)
+					.on("COMPLETED").to(batchExecutionDecider())
+						.on("TESTSTATUS").to(step2)
+					.from(batchExecutionDecider())
+					     .on("*").to(step3)
+				.end() 
+				.build();
+		
+	}
 	
-	
-	/*
-	 * @Bean public Job firstJob(JobRepository jobRepository, Step Step1, Step
-	 * Step2, Step Step3, Step Step4) {
-	 * 
-	 * return new JobBuilder("JOB-3", jobRepository)
-	 * 
-	 * .start(Step1) .on("COMPLETED").to(Step2) .from(Step2)
-	 * .on("COMPLETED").to(Step3) .end() .build(); }
-	 */
-	
-	
-	/*
-	 * @Bean public Job firstJob(JobRepository jobRepository, Step Step1, Step
-	 * Step2, Step Step3, Step Step4) {
-	 * 
-	 * return new JobBuilder("JOB-3", jobRepository)
-	 * 
-	 * .start(Step1) .on("COMPLETED").to(Step2) .from(Step2)
-	 * .on("TEST_STATUS").to(Step3) .from(Step2) .on("*").to(Step4) .end() .build();
-	 * }
-	 */
 	
 	
 	@Bean
