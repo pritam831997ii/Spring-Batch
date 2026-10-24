@@ -1,0 +1,35 @@
+2026-09-16 00:41:35 [main] INFO  c.e.B.BatchApplication - Starting BatchApplication using Java 21.0.12.1 with PID 6968 (C:\Users\prita\Documents\WorkSpaces_3\BatchApplication\target\classes started by prita in C:\Users\prita\Documents\WorkSpaces_3\BatchApplication)
+2026-09-16 00:41:35 [main] DEBUG c.e.B.BatchApplication - Running with Spring Boot v4.1.1, Spring v7.0.9
+2026-09-16 00:41:35 [main] INFO  c.e.B.BatchApplication - No active profile set, falling back to 1 default profile: "default"
+2026-09-16 00:41:35 [main] DEBUG o.s.b.c.c.annotation.BatchRegistrar - Finished Spring Batch infrastructure beans configuration in 2 ms.
+2026-09-16 00:41:36 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-09-16 00:41:36 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-09-16 00:41:36 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-09-16 00:41:36 [main] INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1250 ms
+2026-09-16 00:41:36 [main] DEBUG o.s.batch.core.job.AbstractJob - No ObservationRegistry has been set, defaulting to ObservationRegistry NOOP
+2026-09-16 00:41:36 [main] DEBUG o.s.b.c.c.a.BatchObservabilityBeanPostProcessor - No Micrometer observation registry found, defaulting to ObservationRegistry.NOOP
+2026-09-16 00:41:36 [main] DEBUG o.s.b.c.l.s.JobOperatorFactoryBean - No JobRegistry has been set, defaulting to a MapJobRegistry populated with jobs defined in the application context.
+2026-09-16 00:41:36 [main] DEBUG o.s.b.c.l.s.JobOperatorFactoryBean - No transaction manager has been set, defaulting to ResourcelessTransactionManager.
+2026-09-16 00:41:36 [main] DEBUG o.s.b.c.l.s.JobOperatorFactoryBean - No TaskExecutor has been set, defaulting to synchronous executor.
+2026-09-16 00:41:36 [main] DEBUG o.s.b.c.l.s.JobOperatorFactoryBean$DefaultJobOperatorTransactionAttributeSource - Adding transactional method [public boolean org.springframework.batch.core.launch.support.TaskExecutorJobOperator.stop(org.springframework.batch.core.job.JobExecution) throws org.springframework.batch.core.launch.JobExecutionNotRunningException] with attribute [PROPAGATION_REQUIRED,ISOLATION_DEFAULT]
+2026-09-16 00:41:36 [main] DEBUG o.s.b.c.l.s.JobOperatorFactoryBean$DefaultJobOperatorTransactionAttributeSource - Adding transactional method [public org.springframework.batch.core.job.JobExecution org.springframework.batch.core.launch.support.TaskExecutorJobOperator.abandon(org.springframework.batch.core.job.JobExecution) throws org.springframework.batch.core.launch.JobExecutionAlreadyRunningException] with attribute [PROPAGATION_REQUIRED,ISOLATION_DEFAULT]
+2026-09-16 00:41:36 [main] DEBUG o.s.b.c.l.s.JobOperatorFactoryBean$DefaultJobOperatorTransactionAttributeSource - Adding transactional method [public org.springframework.batch.core.job.JobExecution org.springframework.batch.core.launch.support.TaskExecutorJobOperator.recover(org.springframework.batch.core.job.JobExecution)] with attribute [PROPAGATION_REQUIRED,ISOLATION_DEFAULT]
+2026-09-16 00:41:36 [main] DEBUG o.s.b.c.l.s.TaskExecutorJobOperator - No ObservationRegistry has been set, defaulting to ObservationRegistry NOOP
+2026-09-16 00:41:36 [main] INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-09-16 00:41:36 [main] INFO  c.e.B.BatchApplication - Started BatchApplication in 2.308 seconds (process running for 2.682)
+2026-09-16 00:41:36 [main] INFO  o.s.b.b.a.JobLauncherApplicationRunner - Running default command line with: []
+2026-09-16 00:41:37 [main] INFO  o.s.b.c.l.s.TaskExecutorJobOperator - Launching next instance of job: [Second job] with parameters: [{JobParameter{name='run.id', value=1, type=class java.lang.Long, identifying=true}}]
+2026-09-16 00:41:37 [main] DEBUG o.s.b.c.l.s.TaskExecutorJobLauncher - Creating a new job instance for job = Second job with parameters = {JobParameter{name='run.id', value=1, type=class java.lang.Long, identifying=true}}
+2026-09-16 00:41:37 [main] INFO  o.s.b.c.l.s.TaskExecutorJobLauncher - Job: [SimpleJob: [name=Second job]] launched with the following parameters: [{JobParameter{name='run.id', value=1, type=class java.lang.Long, identifying=true}}]
+2026-09-16 00:41:37 [main] DEBUG o.s.batch.core.job.AbstractJob - Job execution starting: JobExecution: id=1, version=null, startTime=null, endTime=null, lastUpdated=null, status=STARTING, exitStatus=exitCode=UNKNOWN;exitDescription=;exitException=null, job=[JobInstance: id=1, version=null, Job=[Second job]], jobParameters=[{JobParameter{name='run.id', value=1, type=class java.lang.Long, identifying=true}}]
+2026-09-16 00:41:37 [main] DEBUG o.s.batch.core.step.AbstractStep - Executing: id=1
+2026-09-16 00:41:37 [main] INFO  o.s.batch.core.step.AbstractStep - Executing step: [First Chunk Step]
+2026-09-16 00:41:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-09-16 00:41:37 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e2bd5e6
+2026-09-16 00:41:37 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-09-16 00:41:37 [main] DEBUG o.s.batch.core.step.AbstractStep - Step execution success: id=1
+2026-09-16 00:41:37 [main] INFO  o.s.batch.core.step.AbstractStep - Step: [First Chunk Step] executed in 395ms
+2026-09-16 00:41:37 [main] DEBUG o.s.batch.core.step.AbstractStep - Step execution complete: StepExecution: id=1, version=0, name=First Chunk Step, status=COMPLETED, exitStatus=COMPLETED, readCount=9, filterCount=0, writeCount=9, readSkipCount=0, writeSkipCount=0, processSkipCount=0, commitCount=3, rollbackCount=0
+2026-09-16 00:41:37 [main] DEBUG o.s.batch.core.job.AbstractJob - Upgrading JobExecution status: StepExecution: id=1, version=0, name=First Chunk Step, status=COMPLETED, exitStatus=COMPLETED, readCount=9, filterCount=0, writeCount=9, readSkipCount=0, writeSkipCount=0, processSkipCount=0, commitCount=3, rollbackCount=0, exitDescription=
+2026-09-16 00:41:37 [main] DEBUG o.s.batch.core.job.AbstractJob - Job execution complete: JobExecution: id=1, version=null, startTime=2026-09-16T00:41:37.056398600, endTime=null, lastUpdated=2026-09-16T00:41:37.457630200, status=COMPLETED, exitStatus=exitCode=COMPLETED;exitDescription=;exitException=null, job=[JobInstance: id=1, version=null, Job=[Second job]], jobParameters=[{JobParameter{name='run.id', value=1, type=class java.lang.Long, identifying=true}}]
+2026-09-16 00:41:37 [main] INFO  o.s.b.c.l.s.TaskExecutorJobLauncher - Job: [SimpleJob: [name=Second job]] completed with the following parameters: [{JobParameter{name='run.id', value=1, type=class java.lang.Long, identifying=true}}] and the following status: [COMPLETED] in 402ms
