@@ -158,20 +158,4 @@ public class BatchConfig {
 	}
 	
 	
-	
-	@Bean
-	public Job firstJob(JobRepository jobRepository, Step Step1, Step Step2, Step Step3, Step Step4) {
-		
-		return new JobBuilder("JOB-3", jobRepository) 
-				
-				.start(Step1)
-				.on("COMPLETED").to(batchExecutionDecider())
-					//.on("TEST_STATUS").to(Step2)
-				.on("TEST").to(Step2)
-				.from(batchExecutionDecider())
-					.on("*").to(Step3)
-			.end()
-			.build();
-	}
-	
 }
